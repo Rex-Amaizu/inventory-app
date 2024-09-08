@@ -6,6 +6,7 @@ import {
   ProductWithInventory,
 } from "@/utils/types/types";
 import { ProductPost } from "@/utils/types/types";
+import { unstable_noStore as noStore } from "next/cache";
 
 interface ProductState {
   products: ProductWithInventory[];
@@ -25,13 +26,8 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await fetch("/api/products", {
-      method: "GET",
-      headers: {
-        "Cache-Control": "no-store", // Ensure no caching
-      },
-      cache: "no-store", // Disable Next.js fetch caching
-    });
+    noStore();
+    const response = await fetch("/api/products");
     const products = await response.json();
     // Return products with inventory as is from the API
     return products as ProductWithInventory[];
@@ -63,9 +59,7 @@ export const updateProduct = createAsyncThunk(
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        "Cache-Control": "no-store",
       },
-      cache: "no-store",
       body: JSON.stringify(productWithoutId),
     });
     if (!response.ok) {
