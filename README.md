@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# inventory-app
 
-## Getting Started
+## Description
 
-First, run the development server:
+This Inventory Management App allows users to manage products, track inventory levels, and update stock information efficiently. The app provides a user-friendly interface for handling products, listing inventory, and generating reports.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Add products
+- Update Inventory
+- Update and delete products
+- Generate inventory reports
+- Real-time stock alerts(Only a frontend design showing the app should receive notifications but the full notification functionality is not implemented yet)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Clone the repository:
 
-## Learn More
+   git clone <https://github.com/Rex-Amaizu/inventory-app.git>
 
-To learn more about Next.js, take a look at the following resources:
+2. Navigate into the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   npm install
 
-## Deploy on Vercel
+4. Set up environment variables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   - Create a `.env.local` file with necessary environment variables such as `MONGODB_URI` for database connectivity.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+5. Run the app:
+   npm run dev
+
+## Usage
+
+- On the homepage, you can click on view Inventory to generate inventory report for each product
+- To add a product, navigate to the 'Product' page and fill in the product details.
+- You can edit or delete products from the 'Product' page.
+- You can update inventory(reduce or increase stock) from the inventory page.
+
+## API Endpoints
+
+- **GET** `/api/products` - Fetch all products
+- **GET** `/api/products/:id` - Fetch product by ID
+- **POST** `/api/products/new` - Add a new product
+- **PUT** `/api/products/update/:id` - Update a product by ID
+- **DELETE** `/api/products/delete/:id` - Delete a product by ID
+- **PUT** `/api/products/inventory/:id` - Update inventory by product ID
+
+## Technologies Used
+
+- Next.js (React Framework)
+- TypeScript
+- MongoDB (Database)
+- Redux Toolkit (State Management)
+- CSS Modules (Styling)
+
+## License
+
+This project currently does not have an official license. Without a license, all rights are reserved, and the use, modification, and distribution of this code are not permitted without explicit permission from the author.
+
+If you wish to use this code, please contact <intanalegacy89@gmail.com> for permissions or licensing inquiries.
+
+## Contact
+
+For any inquiries, please reach out at <intanalegacy89@gmail.com>.
