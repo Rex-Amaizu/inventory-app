@@ -5,7 +5,7 @@ import { ProductWithInventory } from "../lib/models/Product";
 import { NextApiRequest, NextApiResponse } from "next";
 import { revalidateTag } from "next/cache";
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(res: NextApiResponse) {
   const client = await clientPromise;
   const db = client.db(dbName);
   // Set cache control headers
