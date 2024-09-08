@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import clientPromise from "@/app/api/lib/mongodb";
 import { ObjectId } from "mongodb";
 import { dbName } from "@/app/api/config/keys";
+import { revalidateTag } from "next/cache";
 
 export async function DELETE(
   request: Request,
@@ -20,6 +21,8 @@ export async function DELETE(
   if (!deletedProduct) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
+
+  revalidateTag("products");
 
   return NextResponse.json({
     status: 200,

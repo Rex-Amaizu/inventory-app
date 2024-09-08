@@ -3,6 +3,7 @@ import clientPromise from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
 import { InventoryChange, Product, StockData } from "../../lib/models/Product";
 import { dbName } from "@/app/api/config/keys";
+import { revalidateTag } from "next/cache";
 
 export async function POST(request: Request) {
   const client = await clientPromise;
@@ -54,6 +55,8 @@ export async function POST(request: Request) {
   const insertedProduct = await productsCollection.findOne({
     _id: new ObjectId(productId),
   });
+
+  revalidateTag("products");
 
   return NextResponse.json({
     status: 200,

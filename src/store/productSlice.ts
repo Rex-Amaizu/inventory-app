@@ -6,7 +6,7 @@ import {
   ProductWithInventory,
 } from "@/utils/types/types";
 import { ProductPost } from "@/utils/types/types";
-import { unstable_noStore as noStore } from "next/cache";
+import { unstable_noStore as noStore, revalidateTag } from "next/cache";
 
 interface ProductState {
   products: ProductWithInventory[];
@@ -46,6 +46,8 @@ export const addProduct = createAsyncThunk(
       body: JSON.stringify(newProduct),
     });
     const product = (await response.json()) as ProductWithInventory;
+
+    revalidateTag("products");
     return product; // Return the new product with its inventory
   }
 );
@@ -67,6 +69,7 @@ export const updateProduct = createAsyncThunk(
       throw new Error(data.error || "Failed to update product");
     }
     const updatedProduct = (await response.json()) as ProductWithInventory;
+    revalidateTag("products");
     return updatedProduct; // Return the updated product with its inventory
   }
 );
@@ -78,6 +81,7 @@ export const deleteProduct = createAsyncThunk(
     await fetch(`/api/products/delete/${id}`, {
       method: "DELETE",
     });
+    revalidateTag("products");
     return id; // Return the ID of the deleted product
   }
 );
@@ -98,6 +102,7 @@ export const updateInventory = createAsyncThunk(
       throw new Error(data.error || "Failed to update inventory");
     }
     const insertedProduct = (await response.json()) as ProductWithInventory;
+    revalidateTag("products");
     return insertedProduct; // Return the product with updated inventory
   }
 );

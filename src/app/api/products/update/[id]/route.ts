@@ -3,6 +3,7 @@ import clientPromise from "@/app/api/lib/mongodb";
 import { ObjectId } from "mongodb";
 import { Product } from "@/app/api/lib/models/Product";
 import { dbName } from "@/app/api/config/keys";
+import { revalidateTag } from "next/cache";
 
 export async function PUT(
   request: Request,
@@ -10,6 +11,7 @@ export async function PUT(
 ) {
   const client = await clientPromise;
   const db = client.db(dbName);
+
   const productsCollection = db.collection<Product>("products");
 
   const body = await request.json();
@@ -24,6 +26,8 @@ export async function PUT(
   if (!updatedProduct) {
     return NextResponse.json({ error: "Product not found" }, { status: 404 });
   }
+
+  revalidateTag("products");
 
   return NextResponse.json({
     status: 200,

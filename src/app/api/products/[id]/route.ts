@@ -3,6 +3,7 @@ import clientPromise from "../../lib/mongodb";
 import { ObjectId } from "mongodb";
 import { Product } from "../../lib/models/Product";
 import { dbName } from "@/app/api/config/keys";
+import { revalidateTag } from "next/cache";
 
 export async function GET(
   request: Request,
@@ -19,6 +20,7 @@ export async function GET(
   if (!product) {
     return NextResponse.json({ message: "Product not found" }, { status: 404 });
   }
+  revalidateTag("products");
 
   return NextResponse.json(product);
 }
