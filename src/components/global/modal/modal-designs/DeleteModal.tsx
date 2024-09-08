@@ -12,12 +12,24 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   deleteId: string;
+  handleAction?: () => void;
 }
 
-const DeleteModal = ({ isOpen, onClose, deleteId }: ModalProps) => {
+const DeleteModal = ({
+  isOpen,
+  onClose,
+  deleteId,
+  handleAction,
+}: ModalProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const dispatch: AppDispatch = useDispatch();
+
+  const closeSuccess = () => {
+    onClose();
+    if (handleAction !== undefined) handleAction();
+    toast("Product Deleted!");
+  };
 
   const deleteItem = async () => {
     setIsLoading(true);
@@ -25,8 +37,7 @@ const DeleteModal = ({ isOpen, onClose, deleteId }: ModalProps) => {
       await dispatch(deleteProduct(deleteId));
 
       setIsLoading(false);
-      onClose();
-      toast("Product Deleted!");
+      closeSuccess();
     } catch (error) {
       console.log(error);
       alert(error);

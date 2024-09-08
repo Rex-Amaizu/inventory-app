@@ -152,6 +152,7 @@ const EditProductModal = ({
         isOpen={confirmModal}
         onClose={closeConfirmModal}
         deleteId={editData?._id}
+        handleAction={handleAction}
       />
       <UpdateSuccessModal
         isOpen={openSuccessModal}
