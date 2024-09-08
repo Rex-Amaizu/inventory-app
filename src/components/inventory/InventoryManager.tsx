@@ -15,7 +15,7 @@ const InventoryManager = ({ page, products, handleAction }: Props) => {
     <div className={styles.container}>
       <ProductHeader />
       {products.map((p, index) => (
-        <div className={styles.productDiv}>
+        <div key={p._id} className={styles.productDiv}>
           <Product
             page={page}
             key={p._id}
