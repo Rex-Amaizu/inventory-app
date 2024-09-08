@@ -25,7 +25,13 @@ const initialState: ProductState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await fetch("/api/products");
+    const response = await fetch("/api/products", {
+      method: "GET",
+      headers: {
+        "Cache-Control": "no-store", // Ensure no caching
+      },
+      cache: "no-store", // Disable Next.js fetch caching
+    });
     const products = await response.json();
     // Return products with inventory as is from the API
     return products as ProductWithInventory[];
@@ -57,7 +63,9 @@ export const updateProduct = createAsyncThunk(
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "Cache-Control": "no-store",
       },
+      cache: "no-store",
       body: JSON.stringify(productWithoutId),
     });
     if (!response.ok) {
