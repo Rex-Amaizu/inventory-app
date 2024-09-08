@@ -1,0 +1,180 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  padding: 20px;
+  background: #ffffffff; /* white */
+  border-radius: 0px;
+  box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f;
+}
+
+.smallContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #ffffffff; /* white */
+  border-radius: 0px;
+  box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f;
+}
+
+.logoDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.logoDiv > label {
+  font-family: Lexend; /* Heading */
+  font-size: 28px;
+  line-height: 42px;
+  font-weight: 700;
+  color: #000000ff; /* black */
+}
+
+.userInfoDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: auto;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  width: auto;
+  height: 52px;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #6d31edff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notificationDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.notifications {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  font-size: 5px;
+  font-weight: 600;
+  margin-left: 10px;
+  position: absolute;
+}
+
+.mobileContainer {
+  display: flex;
+  position: relative;
+}
+
+.sideBarDiv {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: auto;
+  height: 100vh;
+  z-index: 1000;
+  background: #fff;
+}
+
+.logomobileDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: 10px;
+  padding-left: 20px;
+}
+
+.logomobileDiv > label {
+  font-family: Lexend; /* Heading */
+  font-size: 14px;
+  line-height: 42px;
+  font-weight: 700;
+  color: #fff; /* black */
+}
+
+.userInfoMobileDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  width: auto;
+  position: absolute;
+  top: 250px;
+  left: 20px;
+}
+
+.userMobileInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  align-items: center;
+  width: auto;
+  height: 52px;
+}
+
+.nameMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #6d31edff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.notificationMobileDiv {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.notificationsMobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  font-size: 5px;
+  font-weight: 600;
+  margin-left: 10px;
+  position: absolute;
+}

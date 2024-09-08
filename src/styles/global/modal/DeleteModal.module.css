@@ -1,0 +1,81 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 300px;
+  width: auto;
+}
+
+.container > label {
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 33px;
+  text-align: left;
+}
+.container > p {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+}
+
+.cancelButton {
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.cancelButton > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 37px;
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+}
+
+.deleteButton {
+  display: flex;
+  align-items: flex-start;
+  width: 50%;
+}
+
+.deleteButton > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 37px;
+  border: 1px solid red;
+  border-radius: 2px;
+  background-color: red;
+  color: #fff;
+  font-size: 14px;
+}
+@media (max-width: 340px) {
+  .container {
+    width: 290px;
+  }
+
+  .buttonDiv {
+    align-items: center;
+    width: 290px;
+    padding-right: 10px;
+  }
+}

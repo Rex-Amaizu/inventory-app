@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 300px;
+  width: auto;
+}
+
+.container > label {
+  font-family: Poppins;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 33px;
+  text-align: left;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 500px;
+  background-color: #6d31edff;
+  height: 70px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.inventoryListAdd {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 500px;
+  background-color: #ccffcc;
+  height: 70px;
+}
+
+.inventoryListRemove {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  width: 500px;
+  background-color: #ffcccc;
+  height: 70px;
+}
+
+@media (max-width: 540px) {
+  .container {
+    width: 100%;
+  }
+
+  .container > label {
+    font-size: 16px;
+  }
+
+  .header {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .inventoryListAdd {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+  }
+
+  .inventoryListRemove {
+    padding: 10px;
+    width: 100%;
+    height: 50px;
+  }
+}
+
+@media (max-width: 340px) {
+  .container {
+    width: 300px;
+  }
+
+  .header {
+    width: 290px;
+  }
+
+  .inventoryListAdd {
+    width: 290px;
+  }
+
+  .inventoryListRemove {
+    width: 290px;
+  }
+}
